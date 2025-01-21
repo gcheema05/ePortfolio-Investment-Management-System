@@ -1,0 +1,80 @@
+General Problem: 
+
+Create a GUI based application to emulate a investment portfolio with two types of investments: stocks
+and mutual funds. The program will allow the buying and selling of investments and will also allow the ability
+to update prices of the investments, get the gain of investments if sold, and to find investments within
+the system using symbol, keywords, and/or price ranges using HashMaps for the keywords to speed up the process.
+
+Assumptions/Limitations:
+
+- We assume only two types of investments exist: stock and mutual funds
+- All investments must have unique symbols
+- Commissions are fixed ($9.99 for stocks, $45 for mutual funds when selling)
+- Price updates must be handled by the user to reflect the current market, requires accuracy
+- User must use the GUI interface for input/output
+
+Building and Running the Program: 
+
+- Java Development Kit (JDK) installed
+- Must be inside the gcheem07_a3 directory
+- Compile: javac ePortfolio/Portfolio.java
+- Execute: java ePortfolio.Portfolio
+
+Test Plan:
+
+General
+- Ensure all commands (buy, sell, update, getGain, search, and quit) are correctly processed and related JPanel's are correctly shown
+
+Buy
+- Prompt for stock or mutualFund, ensure that either stock/s or mutualfund/m is entered
+- Prompt for symbol, ensure that symbol is not empty, allow user to try again till not empty
+- Enter a symbol already in the portfolio, check if the program find the investment associated with the symbol and allows the user to edit the price and quantity
+- Prompt for price and quantity, ensure that price  and quantity > 0, allow user to try again till the correct input is entered
+- Enter a new symbol, check if the program allows the user to set up a new investment, where the user is asked for price, quantity, and name
+- Ensure that each word from the name of the new investment added is added to the HashMap
+- If key already exists, then the ArrayList (value) will be updated to include the new index in the HashMap
+- Otherwise a new key and pair is created and added into the HashMap
+- Ensure that every time a investment is edited or added, a order summary will display
+
+Sell
+- Prompt for symbol, ensure user enters a non empty value
+- Check if symbol is part of the investments, if not inform the user
+- If the symbol is part of the investments, prompt for quantity and price, ensuring correct input
+- If the whole position is sold, update the HashMap and related key and value pairs
+- If key no longer has a value (empty arrayList), delete the entire pair
+- Remove the investment from the portfolio, display the transition summary (gains, symbol, etc)
+- If entire position is not being sold, update the bookValue, quantity, and price of the investment
+- Display the transition summary (gain, how many shares sold, etc)
+
+Update
+- Prompt the user for valid price for each investment, ensure that all investments show up and that prices are actually updated for the investments
+
+Search
+- Check if program is able to find out if portfolio is empty by calling search with a empty portfolio, will display a message to inform the user
+- Prompt for symbol and keywords (can be empty)
+- Prompt for price range, ensure valid input is entered (lower price is not higher than high price)
+- Use HashMap to find all investments with all keywords entered in any order (enter one keyword, two keywords, etc)
+- If no keyword is entered, ensure that all the indices are checked for symbol
+- If keywords were entered, search the smaller list for the symbol entered, by the end of the search only indices with the symbol (can only be one) will be left
+- If no symbol is entered, keep the indices as is from before
+- If price range is entered, check for if we have X (equal to X) or -X (equal or less than X) or X- (equal or greater than X) or X-Y (between X and Y or X and Y itself)
+- Sort out the indices that are not part of the range given and print out the investments corresponding to the remaining indices
+- If no range is entered, print out the investments corresponding to the previous indices (from symbol)
+- Use a combination of symbol, keywords, and priceRange to test the search function
+- Test each search field independently as well
+- Ensure the correct investments are printed at the end
+
+GetGain
+- Check if portfolio is empty, inform the user if so
+- Compare the program's totalGain calculations with your own
+- Compare with one investment first, one of each type (stock and mutualFund), after check with a combination of the two
+- Ensure the program correctly displays the totalGain to the user
+
+Quit
+- Ensure that program displays a message to the user that the program has closed and ensure the program ends correctly
+
+Future Improvements:
+
+- User authentication for secure access to personal portfolios 
+- More investment types like bonds or cryptocurrencies
+- Integration with live stock market APIs for real-time price updates
