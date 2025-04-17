@@ -45,7 +45,7 @@ A <code>HashMap&lt;String, ArrayList&lt;Integer&gt;&gt;</code> stores keywords f
   <tr><td><strong>Language</strong></td><td>Java</td></tr>
   <tr><td><strong>GUI Framework</strong></td><td>Java Swing</td></tr>
   <tr><td><strong>Data Structures</strong></td><td>ArrayList, HashMap</td></tr>
-  <tr><td><strong>IDE</strong></td><td>IntelliJ / Eclipse / VS Code</td></tr>
+  <tr><td><strong>IDE</strong></td><td>VS Code</td></tr>
   <tr><td><strong>JDK Version</strong></td><td>Java 8 or higher</td></tr>
 </table>
 
